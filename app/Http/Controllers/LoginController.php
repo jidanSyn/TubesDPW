@@ -15,7 +15,7 @@ class LoginController extends Controller
 
     public function authenticate(Request $request) {
         $credentials = $request->validate([
-            'username' => 'required',
+            'email' => 'required',
             'password' => 'required'
         ]);
 
@@ -35,11 +35,12 @@ class LoginController extends Controller
     }
 
     public function create(Request $request) {
+        // dd($request->all());
         // return $request->all();
         $validatedData = $request->validate([
             'name' => 'required|max:255',
             'username' => 'required|min:8|max:255|unique:users',
-            'email' => 'required|email:dns|unique:users',
+            'email' => 'required|email|unique:users',   //email:dns for tighter
             'password' => 'required|min:8|max:255'
         ]);
 
