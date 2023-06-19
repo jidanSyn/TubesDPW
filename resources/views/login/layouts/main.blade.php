@@ -1,19 +1,18 @@
 <!doctype html>
 <html lang="en" data-bs-theme="auto">
-  <head>
-    <script src="/js/color-modes.js"></script>
+  <head><script src="../assets/js/color-modes.js"></script>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.112.5">
-    <title>Login</title>
+    <title>Signin Template · Bootstrap v5.3</title>
 
-    {{-- <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/sign-in/"> --}}
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/sign-in/">
 
     
-{{-- <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet"> --}}
+<link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 
     <style>
@@ -148,44 +147,17 @@
 
     
 <main class="form-signin w-100 m-auto">
-  <form action="/register" method="post">
-    @csrf
-    {{-- <img class="mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> --}}
-    <h1 class="h3 mb-3 fw-normal">Registration</h1>
+  <form>
+    <img class="mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
+    <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
 
     <div class="form-floating">
-      <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" placeholder="Name" name="name" required value="{{ old('name') }}" style="border-bottom-left-radius: 0; border-bottom-right-radius: 0; margin-bottom: -1px">
-      <label for="name">Name</label>
-        @error('name')
-           <div class="invalid-feedback">
-            {{ $message }}
-           </div>
-           @enderror
+      <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+      <label for="floatingInput">Email address</label>
     </div>
-
     <div class="form-floating">
-      <input type="text" class="form-control @error('username') is-invalid @enderror" id="username" placeholder="Username" name="username" required value="{{ old('username') }}" style="border-radius: 0; margin-bottom: -1px">
-      <label for="username">Username</label>
-        @error('username')
-           <div class="invalid-feedback">
-            {{ $message }}
-           </div>
-           @enderror
-    </div>
-
-    <div class="form-floating">
-      <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" placeholder="name@example.com" name="email" required value="{{ old('email') }}" style="border-radius: 0">
-      <label for="email">Email address</label>
-        @error('email')
-           <div class="invalid-feedback">
-            {{ $message }}
-           </div>
-           @enderror
-    </div>
-    
-    <div class="form-floating">
-      <input type="password" class="form-control" id="password" placeholder="Password" required name="password">
-      <label for="password">Password</label>
+      <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+      <label for="floatingPassword">Password</label>
     </div>
 
     <div class="form-check text-start my-3">
@@ -194,12 +166,11 @@
         Remember me
       </label>
     </div>
-    <button class="btn btn-primary w-100 py-2" type="submit">Register</button>
-    <small >Already registered? <a href="/login" >Login</a></small>
+    <button class="btn btn-primary w-100 py-2" type="submit">Sign in</button>
     <p class="mt-5 mb-3 text-body-secondary">&copy; 2017–2023</p>
   </form>
 </main>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+<script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
 
     </body>
 </html>
