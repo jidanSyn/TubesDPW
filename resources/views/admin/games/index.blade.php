@@ -6,6 +6,11 @@
 
 @section('content')
 
+  @if (session()->has('success'))
+    <div class="alert alert-success alert-dismissible fade show"  role="alert">
+      {{ session('success') }}
+    </div>
+  @endif
 
   <a href="/admin/games/create" class="btn btn-primary mb-3">Add new game</a>
   <div class="row table-responsive small">
@@ -25,12 +30,12 @@
           <td><div style="width:50px"><img src="{{ asset("assets/img/$game->foto") }}" alt="" class="img img-thumbnail img-fluid mw-50"></div></td>
           <td>{{ $game->name }}</td>
           <td>
-            <a class="badge bg-info text-decoration-none" href="/admin/games/{{ $game->id }}"><span  data-feather="eye"></span>See Product details</a>
-            <a class="badge bg-warning text-decoration-none" href="/admin/games/{{ $game->id }}/edit"><span  data-feather="edit">Edit</span></a>  
-            <form action="/admin/games/{{ $game->id }}" method="post" class="d-inline">
+            <a class="badge bg-info text-decoration-none" href="/admin/games/{{ $game->slug }}"><span  data-feather="eye"></span>See Product details</a>
+            <a class="badge bg-warning text-decoration-none" href="/admin/games/{{ $game->slug }}/edit"><span  data-feather="edit">Edit</span></a>  
+            <form action="/admin/games/{{ $game->slug }}" method="post" class="d-inline">
               @method('delete')
               @csrf
-              <button class="badge bg-danger border-0" onclick=""><span  data-feather="x-circle"></span>Delete</button>
+              <button class="badge bg-danger border-0" onclick="return confirm('Are you sure?')"><span  data-feather="x-circle"></span>Delete</button>
             </form>
           </td>
         </tr>
