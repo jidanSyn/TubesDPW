@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AdminController;
 use App\Models\Product;
 use Illuminate\Support\Facades\Route;
@@ -38,3 +39,5 @@ Route::post('/logout', [LoginController::class, 'logout']);
 
 
 Route::get('/admin', [AdminController::class, 'view']);
+
+Route::get('/about', [AboutController::class, 'view']);
