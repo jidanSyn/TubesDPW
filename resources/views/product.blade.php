@@ -10,13 +10,17 @@
             <div class="col-lg-12">
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-lg-3">
+                        <div class="col-lg-4 mt-5">
                             <!-- Konten bagian kiri (1/4) -->
-                            <div class="card">
-                                <!-- Konten bagian kiri -->
+                            <div class="card mt-5 border border-0" >
+                                
+                                        <img src="/assets/img/{{ $game->banner }}" alt="">
+                                   
+                                <h1>test</h1>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo ratione officiis commodi delectus vitae libero. Accusantium alias, sint debitis ut beatae ratione omnis libero quia, ullam sit dicta sequi illum!</p>
                             </div>
                         </div>
-                        <div class="col-lg-9">
+                        <div class="col-lg-8">
                             <!-- Konten bagian kanan (3/4) -->
                             <div class="container">
                                 <div class="row">

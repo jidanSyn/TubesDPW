@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminGameController;
 use App\Models\Product;
@@ -40,6 +41,8 @@ Route::post('/logout', [LoginController::class, 'logout']);
 
 Route::get('/admin', [AdminController::class, 'view']);
 
+
 Route::resource('/admin/games', AdminGameController::class);
 
 Route::resource('/admin/games/products', AdminProductController::class);
+

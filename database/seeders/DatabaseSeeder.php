@@ -36,16 +36,36 @@ class DatabaseSeeder extends Seeder
         Game::create([
             'name' => 'Mobile Legend',
             'foto' => 'mobilelegend.jpg',
+            'banner' => 'banner-ml.jpeg',
         ]);
 
         Game::create([
             'name' => 'Genshin',
             'foto' => 'genshin.jpg',
+            'banner' => 'banner-genshin.png',
         ]);
 
         Game::create([
             'name' => 'Honkai',
             'foto' => 'hsr.jpg',
+            'banner' => 'banner-hsr.jpg',
+        ]);
+        Game::create([
+            'name' => 'Mobile Legend1',
+            'foto' => 'mobilelegend.jpg',
+            'banner' => 'banner-ml.jpeg',
+        ]);
+
+        Game::create([
+            'name' => 'Genshin2',
+            'foto' => 'genshin.jpg',
+            'banner' => 'banner-genshin.png',
+        ]);
+
+        Game::create([
+            'name' => 'Honkai3',
+            'foto' => 'hsr.jpg',
+            'banner' => 'banner-hsr.jpg',
         ]);
 
         Product::create([
@@ -58,6 +78,32 @@ class DatabaseSeeder extends Seeder
         Product::create([
             'game_id' => '1',
             'name' => '900 Diamond',
+            'foto' => 'diamond_ml.jpg',
+            'harga' => '300.000',
+        ]);
+        Product::create([
+            'game_id' => '1',
+            'name' => '90 Diamond1',
+            'foto' => 'diamond_ml.jpg',
+            'harga' => '30.000',
+        ]);
+
+        Product::create([
+            'game_id' => '1',
+            'name' => '900 Diamond1',
+            'foto' => 'diamond_ml.jpg',
+            'harga' => '300.000',
+        ]);
+        Product::create([
+            'game_id' => '1',
+            'name' => '90 Diamond2',
+            'foto' => 'diamond_ml.jpg',
+            'harga' => '30.000',
+        ]);
+
+        Product::create([
+            'game_id' => '1',
+            'name' => '900 Diamond2',
             'foto' => 'diamond_ml.jpg',
             'harga' => '300.000',
         ]);
@@ -115,5 +161,6 @@ class DatabaseSeeder extends Seeder
             'foto' => 'crystal.jpg',
             'harga' => '200.000',
         ]);
+        
     }
 }

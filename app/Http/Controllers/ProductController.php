@@ -25,9 +25,11 @@ class ProductController extends Controller
     public function index(Game $game)
     {
         $products = Product::where('game_id', $game->id)->get();
+        $games = Game::all();
 
-        return view('product', compact('products'));
+        return view('product', compact('products', 'games', 'game'));
     }
+
 
 
     /**
