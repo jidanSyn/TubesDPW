@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Game;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Cviebrock\EloquentSluggable\Services\SlugService;
 
 class AdminGameController extends Controller
 {
@@ -40,7 +42,33 @@ class AdminGameController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => 'required|max:255',
+            'foto' => 'image|file|max:2048',
+            'banner' => 'image|file|max:2048',
+
+        ]);
+        $slug = SlugService::createSlug(Game::class, 'slug', $request->name);
+
+        $newFotoName = $slug . '.' . $request->file('foto')->getClientOriginalExtension();
+        request()->file('foto')->storeAs('assets/img',$newFotoName,['disk' => 'public']); 
+        $newBannerName = $slug . '-banner.' . $request->file('banner')->getClientOriginalExtension();
+        request()->file('banner')->storeAs('assets/img',$newBannerName,['disk' => 'public']); 
+
+
+        
+        
+        $validatedData['slug'] = $slug;
+        $validatedData['foto'] = $newFotoName;
+        $validatedData['banner'] = $newBannerName;
+        // dd($validatedData);
+        Game::create($validatedData);
+        // $banner = request()->file('banner')->store('assets/img', ['disk' => 'public']);
+
+        return redirect('/admin/games')->with('success', 'New game has been added.');
+
+
+        // return $request->file('foto');
     }
 
     /**
@@ -70,7 +98,7 @@ class AdminGameController extends Controller
     {
         //
         // ddd($game);
-        return view('admin.games.edit');
+        return view('admin.games.edit', ['game' => $game]);
     }
 
     /**
@@ -83,6 +111,51 @@ class AdminGameController extends Controller
     public function update(Request $request, Game $game)
     {
         //
+        // $validatedData = $request->validate([
+        //     'name' => 'required|max:255',
+        //     'foto' => 'image|file|max:2048',
+        //     'banner' => 'image|file|max:2048',
+
+        // ]);
+        $rules = [
+            'name' => 'required|max:255',
+            'foto' => 'image|file|max:2048',
+            'banner' => 'image|file|max:2048',
+
+        ];
+        if($request->name !== $game->name) {
+            
+            $slug = SlugService::createSlug(Game::class, 'slug', $request->name);
+        } else {
+            $slug = $game->slug;
+        }
+
+        if($request->file('foto') !== null) {
+            // return "in photo";
+            Storage::disk('public')->delete("assets/img/$game->foto");
+            $newFotoName = $slug . '.' . $request->file('foto')->getClientOriginalExtension();
+            request()->file('foto')->storeAs('assets/img',$newFotoName,['disk' => 'public']); 
+            $validatedData['foto'] = $newFotoName;
+        }
+
+        if($request->file('banner') !== null) {
+            // return "in banner";
+            Storage::disk('public')->delete("assets/img/$game->banner");
+            $newBannerName = $slug . '-banner.' . $request->file('banner')->getClientOriginalExtension();
+            request()->file('banner')->storeAs('assets/img',$newBannerName,['disk' => 'public']);         
+            $validatedData['banner'] = $newBannerName;
+        }
+
+        // return "no in";
+        
+        $validatedData['slug'] = $slug;
+        // dd($validatedData);
+        Game::where('id', $game->id)->update($validatedData);
+        // $banner = request()->file('banner')->store('assets/img', ['disk' => 'public']);
+
+        return redirect('/admin/games')->with('success', 'New game has been added.');
+
+
     }
 
     /**
@@ -94,5 +167,19 @@ class AdminGameController extends Controller
     public function destroy(Game $game)
     {
         //
+        if($game->foto) {
+            Storage::disk('public')->delete("assets/img/$game->foto");
+        }
+
+        if($game->foto) {
+            Storage::disk('public')->delete("assets/img/$game->banner");
+        }
+
+        Game::destroy($game->id);
+
+        return redirect('/admin/games')->with('success', 'Game has been deleted');
+
     }
+
+    
 }
