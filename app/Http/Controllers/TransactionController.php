@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use App\Models\Transaction;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreTransactionRequest;
 use App\Http\Requests\UpdateTransactionRequest;
 
@@ -34,9 +37,30 @@ class TransactionController extends Controller
      * @param  \App\Http\Requests\StoreTransactionRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreTransactionRequest $request)
+    public function store(Request $request)
     {
-        //
+        // Validasi input jika diperlukan
+        $request->validate([
+            'product_id' => 'required|exists:products,id',
+            // tambahkan validasi lainnya sesuai kebutuhan
+        ]);
+    
+        // Ambil data produk yang dipilih
+        $product = Product::findOrFail($request->product_id);
+    
+        // Simpan ID produk yang dipilih ke dalam session
+        $selectedProducts = $request->session()->get('selected_products', []);
+        if (in_array($product->id, $selectedProducts)) {
+            // Jika produk sudah dipilih, batalkan pemilihan
+            $selectedProducts = array_diff($selectedProducts, [$product->id]);
+        } else {
+            // Jika belum dipilih, tambahkan ke daftar produk yang dipilih
+            $selectedProducts[] = $product->id;
+        }
+        $request->session()->put('selected_products', $selectedProducts);
+    
+        // Redirect atau berikan respon sesuai kebutuhan Anda
+        return redirect()->back()->with('success', 'Transaksi berhasil!');
     }
 
     /**

@@ -9,6 +9,7 @@ use App\Http\Controllers\GameController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProductController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,7 +26,7 @@ Route::get('/', [GameController::class, 'index']);
 
 Route::get('/product', [ProductController::class, 'showProducts']);
 
-Route::get('/product/{game}', [ProductController::class, 'index'])->name('produk');
+Route::get('/product/{game}', [ProductController::class, 'index'])->name('product');
 
 
 Route::get('/login', function () {
@@ -40,9 +41,10 @@ Route::post('/logout', [LoginController::class, 'logout']);
     
 
 Route::get('/admin', [AdminController::class, 'view']);
-
-
 Route::resource('/admin/games', AdminGameController::class);
-
 Route::resource('/admin/games/products', AdminProductController::class);
+
+Route::get('/about', [AboutController::class, 'view']);
+
+
 
