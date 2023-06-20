@@ -1,7 +1,10 @@
 <?php
 
+use App\Models\Product;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\GameController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,13 +17,14 @@ use App\Http\Controllers\LoginController;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', [GameController::class, 'index']);
 
-Route::get('/produk', function () {
-    return view('produk');
-});
+
+Route::get('/product', [ProductController::class, 'showProducts']);
+
+Route::get('/product/{game}', [ProductController::class, 'index'])->name('produk');
+
+
 Route::get('/login', function () {
     return view('login');
 });
