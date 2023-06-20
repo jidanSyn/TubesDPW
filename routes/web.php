@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Models\Product;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GameController;
@@ -35,6 +36,5 @@ Route::get('/register', [LoginController::class, 'register'])->middleware('guest
 Route::post('/register', [LoginController::class, 'create']);
 Route::post('/logout', [LoginController::class, 'logout']);
 
-// Route::get('/admin', function() {
 
-// });
+Route::get('/admin', [AdminController::class, 'view']);
