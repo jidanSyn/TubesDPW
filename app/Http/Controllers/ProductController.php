@@ -26,8 +26,8 @@ class ProductController extends Controller
     {
         $products = Product::where('game_id', $game->id)->get();
         $games = Game::all();
-
-        return view('product', compact('products', 'games', 'game'));
+        $selectedProducts = session('selectedProducts', []);
+        return view('product', compact('products', 'games', 'game', 'selectedProducts'));
     }
 
 
