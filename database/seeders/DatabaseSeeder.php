@@ -50,23 +50,23 @@ class DatabaseSeeder extends Seeder
             'foto' => 'hsr.jpg',
             'banner' => 'banner-hsr.jpg',
         ]);
-        Game::create([
-            'name' => 'Mobile Legend1',
-            'foto' => 'mobilelegend.jpg',
-            'banner' => 'banner-ml.jpeg',
-        ]);
+        // Game::create([
+        //     'name' => 'Mobile Legend1',
+        //     'foto' => 'mobilelegend.jpg',
+        //     'banner' => 'banner-ml.jpeg',
+        // ]);
 
-        Game::create([
-            'name' => 'Genshin2',
-            'foto' => 'genshin.jpg',
-            'banner' => 'banner-genshin.png',
-        ]);
+        // Game::create([
+        //     'name' => 'Genshin2',
+        //     'foto' => 'genshin.jpg',
+        //     'banner' => 'banner-genshin.png',
+        // ]);
 
-        Game::create([
-            'name' => 'Honkai3',
-            'foto' => 'hsr.jpg',
-            'banner' => 'banner-hsr.jpg',
-        ]);
+        // Game::create([
+        //     'name' => 'Honkai3',
+        //     'foto' => 'hsr.jpg',
+        //     'banner' => 'banner-hsr.jpg',
+        // ]);
 
         Product::create([
             'game_id' => '1',
