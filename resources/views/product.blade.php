@@ -71,21 +71,34 @@
                                                     <hr>
                                                     <fieldset>
                                                         <legend>Pilih Pembayaran</legend>
-                                                        <div class="cards-list1">
-                                                            @isset($pembayaran)
-                                                            @foreach ($pembayaran as $pembayaran)
+                                                        @foreach ($pembayaran as $bayar)
+                                                            <div class="card mb-3">
+                                                                <div class="row g-0">
+                                                                <div class="col-md-4">
+                                                                    <img src="/assets/img/{{ $bayar->foto }}" class="card-img-left" alt="..." >
+                                                                </div>
+                                                                <div class="col-md-8">
+                                                                    <div class="card-body">
+                                                                    {{-- <h5 class="card-text">{{ $bayar->name }}</h5> --}}
+                                                                    </div>
+                                                                </div>
+                                                                </div>
+                                                            </div>
+
+                                                        {{-- <div class="cards-list1">
+                                                            
                                                                 <label>
                                                                     <input type="radio" name="pembayaran" class="card-input-element" required/>
                                                                     <div class="card1">
-                                                                        <div class="card_image1"> <img src="/assets/img/{{ $pembayaran->foto }}" /> </div>
+                                                                        <div class="card_image1"> <img src="/assets/img/{{ $bayar->foto }}" /> </div>
                                                                         <div class="card_title1 title1-white">
-                                                                            <p>{{ $pembayaran->name }}</p>
+                                                                            <p>{{ $bayar->name }}</p>
                                                                         </div>
                                                                     </div>
                                                                 </label>
+                                                                
+                                                            </div> --}}
                                                             @endforeach
-                                                            @endisset
-                                                        </div>
                                                     </fieldset>
                                                     <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                                                         <div class="text-center">

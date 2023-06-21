@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Game;
 use App\Models\Product;
+use App\Models\Pembayaran;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
@@ -26,7 +27,8 @@ class ProductController extends Controller
     {
         $products = Product::where('game_id', $game->id)->get();
         $games = Game::all();
-        return view('product', compact('products', 'games', 'game'));
+        $pembayaran = Pembayaran::all();
+        return view('product', compact('products', 'games', 'game', 'pembayaran'));
     }
 
     // public function index(Game $game)
