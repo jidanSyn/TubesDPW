@@ -5,7 +5,9 @@ namespace App\Models;
 use App\Models\Game;
 use App\Models\Transaction;
 use Illuminate\Database\Eloquent\Model;
+
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+
 use Cviebrock\EloquentSluggable\Sluggable;
 
 class Product extends Model
@@ -25,6 +27,7 @@ class Product extends Model
             ]
         ];
     }
+
     public function game() 
     {
         return $this->belongsTo(Game::class);

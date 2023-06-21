@@ -73,94 +73,46 @@ class DatabaseSeeder extends Seeder
             'game_id' => '1',
             'name' => '90 Diamond',
             'foto' => 'diamond_ml.jpg',
-            'harga' => '30.000',
+            'harga' => '30000',
         ]);
 
         Product::create([
             'game_id' => '1',
             'name' => '900 Diamond',
             'foto' => 'diamond_ml.jpg',
-            'harga' => '300.000',
+            'harga' => '300000',
         ]);
-        Product::create([
-            'game_id' => '1',
-            'name' => '90 Diamond1',
-            'foto' => 'diamond_ml.jpg',
-            'harga' => '30.000',
-        ]);
+        
 
-        Product::create([
-            'game_id' => '1',
-            'name' => '900 Diamond1',
-            'foto' => 'diamond_ml.jpg',
-            'harga' => '300.000',
-        ]);
-        Product::create([
-            'game_id' => '1',
-            'name' => '90 Diamond2',
-            'foto' => 'diamond_ml.jpg',
-            'harga' => '30.000',
-        ]);
-
-        Product::create([
-            'game_id' => '1',
-            'name' => '900 Diamond2',
-            'foto' => 'diamond_ml.jpg',
-            'harga' => '300.000',
-        ]);
+       
         
         Product::create([
             'game_id' => '2',
             'name' => '120 primo',
             'foto' => 'primo_genshin.jpg',
-            'harga' => '40.000',
+            'harga' => '40000',
         ]);
         
         Product::create([
             'game_id' => '2',
             'name' => '200 primo',
             'foto' => 'primo_genshin.jpg',
-            'harga' => '90.000',
+            'harga' => '90000',
         ]);
-        Product::create([
-            'game_id' => '2',
-            'name' => '120 primo',
-            'foto' => 'primo_genshin.jpg',
-            'harga' => '40.000',
-        ]);
-        
-        Product::create([
-            'game_id' => '2',
-            'name' => '200 primo',
-            'foto' => 'primo_genshin.jpg',
-            'harga' => '90.000',
-        ]);
-        Product::create([
-            'game_id' => '2',
-            'name' => '120 primo',
-            'foto' => 'primo_genshin.jpg',
-            'harga' => '40.000',
-        ]);
-        
-        Product::create([
-            'game_id' => '2',
-            'name' => '200 primo',
-            'foto' => 'primo_genshin.jpg',
-            'harga' => '90.000',
-        ]);
+          
         
         Product::create([
             'game_id' => '3',
             'name' => '80 crystal',
             'foto' => 'crystal.jpg',
-            'harga' => '27.000',
+            'harga' => '27000',
         ]);
 
         Product::create([
             'game_id' => '3',
             'name' => '180 crystal',
             'foto' => 'crystal.jpg',
-            'harga' => '200.000',
+            'harga' => '200000',
         ]);
 
         Pembayaran::create([
