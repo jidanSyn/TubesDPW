@@ -84,8 +84,8 @@
                                                                 </div>
                                                                 </div>
                                                             </div>
-adasdadasddadsdasd
-                                                        {{-- <div class="cards-list1">
+
+                                                        <div class="cards-list1">
                                                             
                                                                 <label>
                                                                     <input type="radio" name="pembayaran" class="card-input-element" required/>
@@ -97,7 +97,7 @@ adasdadasddadsdasd
                                                                     </div>
                                                                 </label>
                                                                 
-                                                            </div> --}}
+                                                            </div>
                                                             @endforeach
                                                     </fieldset>
                                                     <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
