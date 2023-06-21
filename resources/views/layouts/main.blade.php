@@ -14,7 +14,7 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="{{ asset('css/styles.css') }}" rel="stylesheet" />
     </head>
-    <body>
+    <body class="body-with-bg">
         @include('partials.navbar')
         
         {{-- ieu leungit copas deui ti template --}}

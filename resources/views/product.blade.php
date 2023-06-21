@@ -3,7 +3,7 @@
 @section('container')
     {{-- listing --}}
     <!-- Section-->
-    <div class="container">
+    <div class="container ">
         <div class="row">
             <div class="col-lg-12">
                 <div class="col-lg-12">
@@ -23,8 +23,8 @@
                                 <!-- Konten bagian kanan (3/4) -->
                                 <div class="container">
                                     <div class="row">
-                                        <section class="py-5">
-                                            <form action="{{ route('product') }}" method="POST">
+                                        <section class="py-5 text-white">
+                                            <form action="#" method="POST">
                                                 @csrf  
                                                 <div class="container px-4 px-lg-5 mt-5 justify-content-left">
                                                     <hr>
@@ -41,7 +41,7 @@
                                                     <fieldset class=" mt-4">
                                                         <hr>
                                                         <legend >Pilih Jumlah TopUp</legend>
-                                                        <div class="row gx-2 gx-lg-2 row-cols-2 row-cols-md-4 row-cols-xl-3 justify-content-center">
+                                                        <div class="row gx-2 gx-lg-2 row-cols-2 row-cols-md-4 row-cols-xl-3 justify-content-center text-dark">
                                                             @foreach ($products as $product)
                                                                 <div class="col mb-2">
                                                                     <div class="card h-100">
@@ -88,7 +88,7 @@
                                                     </fieldset>
                                                     <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                                                         <div class="text-center">
-                                                            <input type="submit" class="btn btn-outline-dark mt-auto">
+                                                            <input type="submit" class="btn btn-outline-light mt-auto" value="pesan sekarang">
                                                         </div>
                                                     </div>
                                                 </div>

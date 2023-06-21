@@ -10844,15 +10844,15 @@ textarea.form-control-lg {
 }
 
 .card-input-element:checked + .card-input {
-   box-shadow: 0 0 1px 1px #2ecc71;
+   box-shadow: 0 0 3px 3px #2ecc71;
 }
 
 
 
 
 .card-input-element:checked ~ .panel .card1 .card_image1 img {
-  border-radius: 40px;
-  box-shadow: 0 0 2px 2px #2ecc71;
+  border-radius: 20px;
+  box-shadow: 0 0 3px 3px #2ecc71;
   
 }
 /* .card1-input-element:checked + .card-input {
@@ -10868,10 +10868,10 @@ textarea.form-control-lg {
 }
 
 .card1 {
-  margin: 30px auto;
+  margin: 20px auto;
   width: 400px;
   height: 100px;
-  border-radius: 40px;
+  border-radius: 10px;
   /* box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22); */
   cursor: pointer;
   transition: 0.4s;
@@ -10880,19 +10880,19 @@ textarea.form-control-lg {
 .card1 .card_image1 {
   width: inherit;
   height: inherit;
-  border-radius: 40px;
+  border-radius: 10px;
 }
 
 .card1 .card_image1 img {
   width: inherit;
   height: inherit;
-  border-radius: 40px;
+  border-radius: 20px;
   /* object-fit: cover; */
 }
 
 .card1 .card_title1 {
   text-align: center;
-  border-radius: 0px 0px 40px 40px;
+  border-radius: 0px 0px 20px 20px;
   font-family: sans-serif;
   font-weight: bold;
   font-size: 30px;
@@ -10919,6 +10919,81 @@ textarea.form-control-lg {
     /* On small screens, we are no longer using row direction but column */
     flex-direction: column;
   }
+}
+
+.hero-area {
+	position:relative;
+	padding-top: 80px;
+	padding-bottom: 80px;
+  height: 400px;
+}
+
+#home.hero-area {
+	height:calc(100vh - 80px);
+	padding-top: 0px;
+	padding-bottom: 0px;
+}
+
+.home-wrapper {
+	position:absolute;
+	top:50%;
+	-webkit-transform:translateY(-50%);
+	    -ms-transform:translateY(-50%);
+	        transform:translateY(-50%);
+	left:0;
+	right:0;
+}
+
+/* -- Breadcrumb -- */
+.hero-area-tree li {
+	display:inline-block;
+	font-family: 'Lato', sans-serif;
+	font-weight:600;
+	font-size:14px;
+	color:rgba(255, 255, 255, 0.8);
+}
+
+.hero-area-tree li > a {
+	color:rgba(255, 255, 255, 0.8);
+}
+
+.hero-area-tree li + li:before {
+	content: "/";
+	display: inline-block;
+	margin: 0px 5px;
+	color: rgba(235, 235, 235, 0.25);
+}
+
+
+.bg-image {
+	position:absolute;
+	left:0;
+	right:0;
+	top:0;
+	bottom:0;
+	background-position:center;
+	background-size:cover;
+}
+
+.bg-image.bg-parallax {
+	background-attachment:fixed;
+}
+
+.bg-image.overlay:after {
+	content:"";
+	position:absolute;
+	left:0;
+	right:0;
+	top:0;
+	bottom:0;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#374050), to(#798696));
+	background-image: linear-gradient(to bottom, #374050 0%, #798696 100%);
+	opacity: 0.7;
+}
+
+.body-with-bg {
+  background: rgb(255,255,255);
+  background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(93,92,115,1) 31%, rgba(2,0,36,1) 58%, rgba(18,42,149,1) 100%);
 }
 
 
