@@ -3,8 +3,9 @@
 namespace Database\Seeders;
 
 use App\Models\Game;
-use App\Models\Product;
 use App\Models\User;
+use App\Models\Product;
+use App\Models\Pembayaran;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -160,6 +161,19 @@ class DatabaseSeeder extends Seeder
             'name' => '180 crystal',
             'foto' => 'crystal.jpg',
             'harga' => '200.000',
+        ]);
+
+        Pembayaran::create([
+            'name' => 'Dana',
+            'foto' => 'dana.png',
+        ]);
+        Pembayaran::create([
+            'name' => 'Gopay',
+            'foto' => 'gopay.png',
+        ]);
+        Pembayaran::create([
+            'name' => 'Qris',
+            'foto' => 'qris.png',
         ]);
         
     }

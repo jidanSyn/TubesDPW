@@ -2,21 +2,23 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Game;
-use App\Http\Requests\StoreGameRequest;
-use App\Http\Requests\UpdateGameRequest;
+use App\Models\Pembayaran;
+use App\Models\Pembayarans;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\StorePembayaranRequest;
+use App\Http\Requests\UpdatePembayaranRequest;
 
-class GameController extends Controller
+class PembayaranController extends Controller
 {
-    /**     
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $games = Game::all(); // Mengambil data game dari model Game atau menggunakan query lainnya
-        return view('index', compact('games'));
+        $pembayaran = Pembayaran::all();
+        return view('product', compact('pembayaran'));
     }
 
     /**
@@ -32,10 +34,10 @@ class GameController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreGameRequest  $request
+     * @param  \App\Http\Requests\StorePembayaranRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreGameRequest $request)
+    public function store(StorePembayaranRequest $request)
     {
         //
     }
@@ -43,10 +45,10 @@ class GameController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Game  $game
+     * @param  \App\Models\Pembayaran  $pembayaran
      * @return \Illuminate\Http\Response
      */
-    public function show(Game $game)
+    public function show(Pembayaran $pembayaran)
     {
         //
     }
@@ -54,10 +56,10 @@ class GameController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Game  $game
+     * @param  \App\Models\Pembayaran  $pembayaran
      * @return \Illuminate\Http\Response
      */
-    public function edit(Game $game)
+    public function edit(Pembayaran $pembayaran)
     {
         //
     }
@@ -65,11 +67,11 @@ class GameController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateGameRequest  $request
-     * @param  \App\Models\Game  $game
+     * @param  \App\Http\Requests\UpdatePembayaranRequest  $request
+     * @param  \App\Models\Pembayaran  $pembayaran
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateGameRequest $request, Game $game)
+    public function update(UpdatePembayaranRequest $request, Pembayaran $pembayaran)
     {
         //
     }
@@ -77,10 +79,10 @@ class GameController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Game  $game
+     * @param  \App\Models\Pembayaran  $pembayaran
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Game $game)
+    public function destroy(Pembayaran $pembayaran)
     {
         //
     }

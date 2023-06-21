@@ -1,14 +1,15 @@
 <?php
 
-use App\Http\Controllers\AboutController;
-use App\Http\Controllers\AdminController;
-use App\Http\Controllers\AdminGameController;
 use App\Models\Product;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GameController;
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProductController;
-
+use App\Http\Controllers\AdminGameController;
+use App\Http\Controllers\AdminProductController;
+use App\Http\Controllers\PembayaranController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +26,9 @@ Route::get('/', [GameController::class, 'index']);
 
 
 Route::get('/product', [ProductController::class, 'showProducts']);
+
+Route::get('/', [PembayaranController::class, 'index']);
+
 
 Route::get('/product/{game}', [ProductController::class, 'index'])->name('product');
 
