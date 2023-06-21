@@ -27,7 +27,7 @@ Route::get('/', [GameController::class, 'index']);
 
 Route::get('/product', [ProductController::class, 'showProducts']);
 
-Route::get('/', [PembayaranController::class, 'index']);
+// Route::get('/', [PembayaranController::class, 'index']);
 
 
 Route::get('/product/{game}', [ProductController::class, 'index'])->name('product');
