@@ -17,6 +17,7 @@ class CreateProductsTable extends Migration
             $table->id();
             $table->foreignId('game_id');
             $table->string('name');
+            $table->string('slug')->nullable();
             $table->string('foto');
             $table->decimal('harga', 8, 2);
             $table->timestamps();
