@@ -24,7 +24,7 @@
                                 <div class="container">
                                     <div class="row">
                                         <section class="py-5">
-                                            <form action="/order" method="POST">
+                                            <form action="{{ route('product') }}" method="POST">
                                                 @csrf  
                                                 <div class="container px-4 px-lg-5 mt-5 justify-content-left">
                                                     <hr>
@@ -33,7 +33,7 @@
                                                         <div class="row align-items-center">
                                                             <div class="col-auto">
                                                                 <label for="uid_game" class="col-form-label"></label>
-                                                                <input type="text" id="uid_game" class="form-control " placeholder="Masukkan UID anda" required>
+                                                                <input type="text" name="uid_game" id="uid_game" class="form-control " placeholder="Masukkan UID anda" required>
                                                             </div>
                                                         </div>
                                                     </fieldset>
@@ -46,7 +46,7 @@
                                                                 <div class="col mb-2">
                                                                     <div class="card h-100">
                                                                         <label>
-                                                                            <input type="radio" name="product" class="card-input-element" required/>
+                                                                            <input type="radio" name="topup" id="topup" class="card-input-element" value="{{ $product->id }}" required/>
                                                                             <div class="panel panel-default card-input">
                                                                                 <!-- Product image-->
                                                                                 <img class="card-img-top" src="/assets/img/{{ $product->foto }}" alt="..." />
@@ -72,32 +72,18 @@
                                                     <fieldset>
                                                         <legend>Pilih Pembayaran</legend>
                                                         @foreach ($pembayaran as $bayar)
-                                                            <div class="card mb-3">
-                                                                <div class="row g-0">
-                                                                <div class="col-md-4">
-                                                                    <img src="/assets/img/{{ $bayar->foto }}" class="card-img-left" alt="..." >
-                                                                </div>
-                                                                <div class="col-md-8">
-                                                                    <div class="card-body">
-                                                                    {{-- <h5 class="card-text">{{ $bayar->name }}</h5> --}}
-                                                                    </div>
-                                                                </div>
-                                                                </div>
-                                                            </div>
-
-                                                        {{-- <div class="cards-list1">
+                                                        <div class="cards-list1">
                                                             
                                                                 <label>
-                                                                    <input type="radio" name="pembayaran" class="card-input-element" required/>
-                                                                    <div class="card1">
-                                                                        <div class="card_image1"> <img src="/assets/img/{{ $bayar->foto }}" /> </div>
-                                                                        <div class="card_title1 title1-white">
-                                                                            <p>{{ $bayar->name }}</p>
+                                                                    <input type="radio" name="pembayaran" id="pembayaran" class="card-input-element" required/>
+                                                                    <div class="panel panel-default .card-input-element:checked">
+                                                                        <div class="card1">
+                                                                            <div class="card_image1"><img src="/assets/img/{{ $bayar->foto }}" /> </div>
                                                                         </div>
                                                                     </div>
                                                                 </label>
                                                                 
-                                                            </div> --}}
+                                                            </div>
                                                             @endforeach
                                                     </fieldset>
                                                     <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">

@@ -58,8 +58,22 @@ class ProductController extends Controller
      */
     public function store(StoreProductRequest $request)
     {
-        //
+        return request()->all();
     }
+    // public function store(Request $request)
+    // {
+    //     $request->validate([
+    //         'uid_game' => 'required',
+    //         'topup' => 'required',
+    //         'pembayaran' => 'required',
+    //     ]);
+        
+    //     dd('berhas');
+    // }
+    // public function store(StoreProductRequest $request)
+    // {
+    //     //
+    // }
 
     /**
      * Display the specified resource.

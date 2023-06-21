@@ -22,15 +22,20 @@ use App\Http\Controllers\PembayaranController;
 |
 */
 
-Route::get('/', [GameController::class, 'index']);
+Route::get('/', [GameController::class, 'index'])->name('home');
 
+// Route::post('/', [ProductController::class, 'store']);
 
-Route::get('/product', [ProductController::class, 'showProducts']);
+// Route::get('/product', [ProductController::class, 'showProducts']);
 
 // Route::get('/', [PembayaranController::class, 'index']);
 
 
 Route::get('/product/{game}', [ProductController::class, 'index'])->name('product');
+
+// Route::post('/product/{game}', [ProductController::class, 'store'])->name('product');
+
+Route::post('/index', [ProductController::class, 'store'])->name('topup');
 
 
 Route::get('/login', function () {
