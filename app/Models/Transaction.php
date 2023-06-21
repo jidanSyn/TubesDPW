@@ -14,4 +14,9 @@ class Transaction extends Model
     {
         return $this->hasOne(Product::class);
     }
+
+    public function pembayaran()
+    {
+        return $this->hasOne(Pembayaran::class);
+    }
 }

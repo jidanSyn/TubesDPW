@@ -26,10 +26,16 @@ class ProductController extends Controller
     {
         $products = Product::where('game_id', $game->id)->get();
         $games = Game::all();
-        $selectedProducts = session('selectedProducts', []);
-        return view('product', compact('products', 'games', 'game', 'selectedProducts'));
+        return view('product', compact('products', 'games', 'game'));
     }
 
+    // public function index(Game $game)
+    // {
+    //     $products = Product::where('game_id', $game->id)->get();
+    //     $games = Game::all();
+    //     $selectedProducts = session('selectedProducts', []);
+    //     return view('product', compact('products', 'games', 'game', 'selectedProducts'));
+    // }
 
 
     /**
