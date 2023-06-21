@@ -82,10 +82,13 @@ class AdminGameController extends Controller
         // ddd($game);
         // return "hello";
         // dd($game);
+        session(['selectedProductGameAdmin' => $game]);
+
         return view('admin.games.products.index', [
             'game' => $game,
             'products' => Product::where('game_id', $game->id)->get()
         ]);
+        
     }
 
     /**
@@ -117,12 +120,14 @@ class AdminGameController extends Controller
         //     'banner' => 'image|file|max:2048',
 
         // ]);
-        $rules = [
+        $validatedData = $request->validate([
             'name' => 'required|max:255',
             'foto' => 'image|file|max:2048',
             'banner' => 'image|file|max:2048',
+        ]);
 
-        ];
+        // belum validasi
+
         if($request->name !== $game->name) {
             
             $slug = SlugService::createSlug(Game::class, 'slug', $request->name);
@@ -149,6 +154,7 @@ class AdminGameController extends Controller
         // return "no in";
         
         $validatedData['slug'] = $slug;
+        
         // dd($validatedData);
         Game::where('id', $game->id)->update($validatedData);
         // $banner = request()->file('banner')->store('assets/img', ['disk' => 'public']);
@@ -171,10 +177,11 @@ class AdminGameController extends Controller
             Storage::disk('public')->delete("assets/img/$game->foto");
         }
 
-        if($game->foto) {
+        if($game->banner) {
             Storage::disk('public')->delete("assets/img/$game->banner");
         }
 
+        Product::where('game_id', $game->id)->delete();
         Game::destroy($game->id);
 
         return redirect('/admin/games')->with('success', 'Game has been deleted');

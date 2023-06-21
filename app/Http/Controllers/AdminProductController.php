@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Game;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Cviebrock\EloquentSluggable\Services\SlugService;
 
 class AdminProductController extends Controller
 {
@@ -25,6 +28,7 @@ class AdminProductController extends Controller
     public function create()
     {
         //
+        return view('admin.games.products.create');
     }
 
     /**
@@ -36,6 +40,29 @@ class AdminProductController extends Controller
     public function store(Request $request)
     {
         //
+        $selectedGame = $request->session()->get('selectedProductGameAdmin', '');
+
+        // return dd($prevGame->slug);
+        $validatedData['game_id'] = $selectedGame->id;  // menentukan produk game apa berdasarkan terpilih dari details
+        
+        $validatedData = $request->validate([
+            'name' => 'required|max:255',
+            'foto' => 'image|file|max:2048',
+            'harga' => 'required|between:0,99.99'
+        ]);
+
+        $slug = SlugService::createSlug(Product::class, 'slug', $request->name);
+        $validatedData['slug'] = $slug;
+        
+        $newFotoName = $slug . '.' . $request->file('foto')->getClientOriginalExtension();
+        request()->file('foto')->storeAs('assets/img',$newFotoName,['disk' => 'public']); 
+        $validatedData['foto'] = $newFotoName;
+          
+        Product::create($validatedData);
+
+        // Game::where('id', $product->id)->update($validatedData);
+        
+        return redirect("/admin/games/$selectedGame->slug")->with('success', 'New product listing has been added.');
     }
 
     /**
@@ -58,6 +85,9 @@ class AdminProductController extends Controller
     public function edit(Product $product)
     {
         //
+        // return "hello";
+        
+        return view('admin.games.products.edit', ['product' => $product]);
     }
 
     /**
@@ -70,6 +100,40 @@ class AdminProductController extends Controller
     public function update(Request $request, Product $product)
     {
         //
+
+        $selectedGame = $request->session()->get('selectedProductGameAdmin', '');
+
+        // return dd($prevGame->slug);
+        
+        $validatedData = $request->validate([
+            'name' => 'required|max:255',
+            'foto' => 'image|file|max:2048',
+            'harga' => 'required|between:0,99.99'
+        ]);
+
+        $validatedData['game_id'] = $selectedGame->id;
+
+        if($request->name !== $product->name) {
+            $slug = SlugService::createSlug(Product::class, 'slug', $request->name);
+        } else {
+            $slug = $product->slug;
+        }
+
+        $validatedData['slug'] = $slug;
+
+        if($request->file('foto') !== null) {
+            // return "in photo";
+            Storage::disk('public')->delete("assets/img/$product->foto");
+            $newFotoName = $slug . '.' . $request->file('foto')->getClientOriginalExtension();
+            request()->file('foto')->storeAs('assets/img',$newFotoName,['disk' => 'public']); 
+            $validatedData['foto'] = $newFotoName;
+        }
+
+        
+        Product::where('id', $product->id)->update($validatedData);
+        
+        return redirect("/admin/games/$selectedGame->slug")->with('success', 'Product listing has been updated.');
+
     }
 
     /**
@@ -81,5 +145,14 @@ class AdminProductController extends Controller
     public function destroy(Product $product)
     {
         //
+        $selectedGame = request()->session()->get('selectedProductGameAdmin', '');
+        dd($selectedGame);
+        // if($product->foto) {
+        //     Storage::disk('public')->delete("assets/img/$product->foto");
+        // }
+
+        // Product::destroy($product->id);
+
+        return redirect('/admin/games/')->with('success', 'Product listing has been deleted');
     }
 }
