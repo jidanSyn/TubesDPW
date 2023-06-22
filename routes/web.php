@@ -38,6 +38,7 @@ Route::get('/login', function () {
 
 Route::get('/login', [LoginController::class, 'login'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);
+
 Route::get('/register', [LoginController::class, 'register'])->middleware('guest');
 Route::post('/register', [LoginController::class, 'create']);
 Route::post('/logout', [LoginController::class, 'logout']);
