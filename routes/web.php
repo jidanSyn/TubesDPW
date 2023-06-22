@@ -53,7 +53,7 @@ Route::resource('/admin/games/products', AdminProductController::class);
 
 Route::get('/about', [AboutController::class, 'view']);
 
-Route::get('/', [GameController::class, 'frequentlyPurchased']);
+// Route::get('/', [GameController::class, 'frequentlyPurchased']);
 
 Route::post('/admin/users', [AdminUserController::class, 'updateIsAdmin']);
 
