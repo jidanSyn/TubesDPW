@@ -20,8 +20,9 @@ class TransactionFactory extends Factory
         
         
         $fakeData = array(     
-            'product_id' => mt_rand(1, 91),
+            'product_id' => mt_rand(1, 97),
             'user_id' => mt_rand(3, 103),
+            'uid_game' => $this->faker->randomNumber(9, true),
             'pembayaran_id' => mt_rand(1,3),
             'purchased_on' => $date
         );

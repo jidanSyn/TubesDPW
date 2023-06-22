@@ -63,7 +63,7 @@ class AdminController extends Controller
 
     public function viewTransactions() {
         $query = DB::table('transactions')
-        ->select('transactions.id', 'users.name as namaUser', 'pembayarans.name as namaPembayaran', 'products.name as namaProduct', 'transactions.harga', 'transactions.purchased_on')
+        ->select('transactions.id', 'transactions.uid_game', 'users.name as namaUser', 'pembayarans.name as namaPembayaran', 'products.name as namaProduct', 'transactions.harga', 'transactions.purchased_on')
         ->join('products', 'products.id', '=', 'transactions.product_id')
         ->join('pembayarans', 'pembayarans.id', '=', 'transactions.pembayaran_id')
         ->join('users', 'users.id', '=', 'transactions.user_id')

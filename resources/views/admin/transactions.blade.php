@@ -19,6 +19,7 @@
           <th scope="col">#</th>
           <th scope="col" class="w-auto">User</th>
           <th scope="col">Product</th>
+          <th scope="col">UID Game</th>
           <th scope="col">Harga</th>
           <th scope="col">Jenis Pembayaran</th>
           <th scope="col">Waktu Pembelian</th>
@@ -31,6 +32,7 @@
           <td>{{ $loop->iteration }}</td>
           <td>{{ $transaction->namaUser }}</td>
           <td>{{ $transaction->namaProduct }}</td>
+          <td>{{ $transaction->uid_game }}</td>
           <td>{{ $transaction->harga }}</td>
           <td>{{ $transaction->namaPembayaran }}</td>
           <td>{{ $transaction->purchased_on }}</td>
