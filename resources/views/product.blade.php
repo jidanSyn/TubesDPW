@@ -24,7 +24,7 @@
                                 <div class="container">
                                     <div class="row">
                                         <section class="py-5 text-white">
-                                            <form action="#" method="POST">
+                                            <form action="/product/transaction" method="POST">
                                                 @csrf  
                                                 <div class="container px-4 px-lg-5 mt-5 justify-content-left">
                                                     <hr>
@@ -87,9 +87,15 @@
                                                             @endforeach
                                                     </fieldset>
                                                     <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                                        @if(Auth::check())
                                                         <div class="text-center">
-                                                            <input type="submit" class="btn btn-outline-light mt-auto" value="pesan sekarang">
+                                                            <input type="submit" class="btn btn-outline-light mt-auto" value="Pesan Sekarang">
                                                         </div>
+                                                        @else
+                                                        <div class="text-center">
+                                                            <a class="btn btn-outline-light mt-auto" href="/login" onclick="alert('Please login before purchasing')">Pesan Sekarang</a>
+                                                        </div>
+                                                        @endif
                                                     </div>
                                                 </div>
                                             </form>

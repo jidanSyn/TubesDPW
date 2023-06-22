@@ -8,6 +8,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AdminGameController;
+use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\AdminProductController;
 
 
@@ -40,6 +41,7 @@ Route::get('/register', [LoginController::class, 'register'])->middleware('guest
 Route::post('/register', [LoginController::class, 'create']);
 Route::post('/logout', [LoginController::class, 'logout']);
     
+Route::resource('/product/transaction', TransactionController::class);
 
 Route::get('/admin', [AdminController::class, 'view']);
 Route::resource('/admin/games', AdminGameController::class);
