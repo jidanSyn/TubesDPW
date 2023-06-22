@@ -28,7 +28,15 @@ class GameController extends Controller
         return view('index', compact('games'));
     }
     
+    public function frequentlyPurchased()
+    {
+        $games = Game::withCount('products')
+            ->orderBy('products_count', 'desc')
+            ->take(4) // Ambil 4     game yang paling sering dibeli
+            ->get();
 
+        return view('index', compact('games'));
+    }
     /**
      * Show the form for creating a new resource.
      *
