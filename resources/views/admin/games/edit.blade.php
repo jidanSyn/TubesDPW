@@ -5,6 +5,7 @@
 @endsection
 
 @section('content')
+  {{-- {{ dd($game) }} --}}
     <div class="col-md-10">
     <form style="max-width: 100%" method="post" action="/admin/games/{{ $game->slug }}" enctype="multipart/form-data">
             @method('put')
@@ -34,6 +35,10 @@
               <img class="banner-preview img-fluid mb-3 col-sm-2" alt="">
               <input class="form-control" type="file" id="banner" name="banner"  onchange="previewBanner()">
             </div>
+            <div class="mb-3">
+              <label for="deskripsi" class="form-label">Decription</label>
+              <textarea name="deskripsi" id="deskripsi" cols="30" rows="4" required class="form-control">{{ old('deskripsi', $game->deskripsi) }}</textarea>
+          </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>

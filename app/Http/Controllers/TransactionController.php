@@ -48,7 +48,7 @@ class TransactionController extends Controller
             // tambahkan validasi lainnya sesuai kebutuhan
         ]);
 
-    
+        
         // Ambil data produk yang dipilih
         $product = Product::findOrFail($request->product_id);
 

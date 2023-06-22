@@ -15,9 +15,7 @@
                                 <div class="card mt-5 border border-0 sticky1">
                                     <img src="/assets/img/{{ $game->banner }}" alt="">
                                     <h1>{{ $game->name }}</h1>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo ratione officiis
-                                        commodi delectus vitae libero. Accusantium alias, sint debitis ut beatae ratione
-                                        omnis libero quia, ullam sit dicta sequi illum!</p>
+                                    <p>{{ $game->deskripsi }}</p>
 
                                 </div>
                             </div>

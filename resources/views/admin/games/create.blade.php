@@ -23,11 +23,15 @@
               <img class="banner-preview img-fluid mb-3 col-sm-2" alt="">
               <input class="form-control" type="file" id="banner" name="banner" required onchange="previewBanner()">
             </div>
+            <div class="mb-3">
+                <label for="deskripsi" class="form-label">Decription</label>
+                <textarea name="deskripsi" id="deskripsi" cols="30" rows="4" required value="{{ old('deskripsi') }}" class="form-control"></textarea>
+            </div>
             <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
-    </div>
-
-<script src="{{ URL::asset('js/game-img-preview.js') }}"></script>
+          </form>
+        </div>
+        
+        <script src="{{ URL::asset('js/game-img-preview.js') }}"></script>
     
-
+        
 @endsection
