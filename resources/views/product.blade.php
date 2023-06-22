@@ -26,6 +26,7 @@
                                         <section class="py-5 text-white">
                                             <form action="/product/transaction" method="POST">
                                                 @csrf  
+                                                <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
                                                 <div class="container px-4 px-lg-5 mt-5 justify-content-left">
                                                     <hr>
                                                     <fieldset >
@@ -46,7 +47,7 @@
                                                                 <div class="col mb-2">
                                                                     <div class="card h-100">
                                                                         <label>
-                                                                            <input type="radio" name="topup" id="topup" class="card-input-element" value="{{ $product->id }}" required/>
+                                                                            <input type="radio" name="product_id" id="topup" class="card-input-element" value="{{ $product->id }}" required/>
                                                                             <div class="panel panel-default card-input">
                                                                                 <!-- Product image-->
                                                                                 <img class="card-img-top" src="/assets/img/{{ $product->foto }}" alt="..." />
@@ -75,7 +76,7 @@
                                                         <div class="cards-list1">
                                                             
                                                                 <label>
-                                                                    <input type="radio" name="pembayaran" id="pembayaran" class="card-input-element" required/>
+                                                                    <input type="radio" value="{{ $bayar->id }}" name="pembayaran_id" id="pembayaran" class="card-input-element" required/>
                                                                     <div class="panel panel-default .card-input-element:checked">
                                                                         <div class="card1">
                                                                             <div class="card_image1"><img src="/assets/img/{{ $bayar->foto }}" /> </div>

@@ -17,6 +17,7 @@ class CreateTransactionsTable extends Migration
             $table->id();
             $table->foreignId('product_id');
             $table->foreignId('user_id');
+            $table->foreignId('pembayaran_id');
             $table->decimal('harga', 8, 2);
             $table->timestamp('purchased_on')->nullable();
             $table->timestamps();
