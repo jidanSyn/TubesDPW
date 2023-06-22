@@ -14,6 +14,14 @@ class Game extends Model
     use HasFactory;
     use Sluggable;
 
+    public function scopeSearch($query, $searching)
+    {
+        $query->when($searching['search'] ?? false, function ($query, $cari) {
+            return $query->where('name', 'like', '%' . $cari . '%');
+        });
+    }
+    
+    
     public function sluggable(): array
     {
         return [

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Game;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreGameRequest;
 use App\Http\Requests\UpdateGameRequest;
 
@@ -13,11 +15,19 @@ class GameController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $games = Game::all(); // Mengambil data game dari model Game atau menggunakan query lainnya
+        $games = Game::query();
+    
+        if ($request->input('search')) {
+            $games->search($request->all());
+        }
+    
+        $games = $games->paginate(10)->withQueryString();
+    
         return view('index', compact('games'));
     }
+    
 
     /**
      * Show the form for creating a new resource.
