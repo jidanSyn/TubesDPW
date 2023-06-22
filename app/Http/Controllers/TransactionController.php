@@ -39,16 +39,27 @@ class TransactionController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
-        return;
+        
+
         // Validasi input jika diperlukan
-        $request->validate([
+        $validatedData = $request->validate([
             'product_id' => 'required|exists:products,id',
+            'pembayaran_id' => 'required|exists:pembayarans,id',
             // tambahkan validasi lainnya sesuai kebutuhan
         ]);
+
     
         // Ambil data produk yang dipilih
         $product = Product::findOrFail($request->product_id);
+
+        $validatedData['user_id'] = $request->user_id;
+        $validatedData['harga'] = $product->harga;
+        $validatedData['purchased_on'] = now()->toDateTimeString();;
+
+        
+        // dd($validatedData);
+        // return;
+        
     
         // Simpan ID produk yang dipilih ke dalam session
         $selectedProducts = $request->session()->get('selected_products', []);
@@ -61,6 +72,9 @@ class TransactionController extends Controller
         }
         $request->session()->put('selected_products', $selectedProducts);
     
+        Transaction::create($validatedData);
+
+        // $selectedGame = $request->session()->get('selectedProductGame', '');
         // Redirect atau berikan respon sesuai kebutuhan Anda
         return redirect()->back()->with('success', 'Transaksi berhasil!');
     }

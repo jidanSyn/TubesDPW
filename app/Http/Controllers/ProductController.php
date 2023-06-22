@@ -25,6 +25,7 @@ class ProductController extends Controller
 
     public function index(Game $game)
     {
+        // session(['selectedProductGame' => $game]);
         $products = Product::where('game_id', $game->id)->get();
         $games = Game::all();
         $pembayaran = Pembayaran::all();
