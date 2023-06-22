@@ -192,13 +192,15 @@
         @enderror
     </div>
 
-    <div class="form-check text-start my-3">
-      <input class="form-check-input" type="checkbox" value="remember-me" id="flexCheckDefault">
-      <label class="form-check-label" for="flexCheckDefault">
-        Remember me
-      </label>
+    
+    <div class="form-group">
+      <button class="btn btn-primary w-100 py-2" type="submit">Login</button>
     </div>
-    <button class="btn btn-primary w-100 py-2" type="submit">Login</button>
+    <div class="form-group" >
+      <a href="/" class="btn btn-primary position-absolute top-0 start-0" style="margin-top: 40px; margin-left: 40px;">
+        >Back to Home
+      </a>
+    </div>
     <small >Not registered? <a href="/register" >Register now!</a></small>
     <p class="mt-5 mb-3 text-body-secondary">&copy; 2017–2023</p>
   </form>

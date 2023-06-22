@@ -20,6 +20,7 @@
           <th scope="col" class="w-auto">Photo</th>
           <th scope="col">Name</th>
           <th scope="col">Actions</th>
+          <th scope="col">status</th>
         </tr>
       </thead>
       <tbody>
@@ -29,9 +30,22 @@
           <td><div style="width:50px"><img src="{{ asset("assets/img/user-dummy.png") }}" alt="" class="img img-thumbnail img-fluid mw-50"></div></td>
           <td>{{ $user->name }}</td>
           <td>
-              <a href="{{ route('isAdmin', $user->id) }}"  class="badge bg-info border-0" onclick="return confirm('Apakah Anda yakin ingin mengubah user ini menjadi admin?')">
+            @if ($user->is_admin)
+            <a href="#" class="badge bg-secondary border-0" style="cursor: no-drop">
+                <span data-feather="x-circle">Set As Admin</span>
+            </a>
+          @else
+              <a href="{{ route('isAdmin', $user->id) }}" class="badge bg-info border-0" onclick="return confirm('Apakah Anda yakin ingin mengubah user ini menjadi admin?')">
                   <span data-feather="x-circle">Set As Admin</span>
               </a>
+          @endif
+          </td>
+          <td>
+            @if ($user->is_admin)
+            {{ 'Admin' }}
+          @else
+          {{ 'User' }}
+          @endif
           </td>
         </tr>
           
