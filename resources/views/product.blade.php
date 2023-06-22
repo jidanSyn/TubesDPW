@@ -26,7 +26,12 @@
                                         <section class="py-5 text-white">
                                             <form action="/product/transaction" method="POST">
                                                 @csrf  
-
+                                                @if (session()->has('success'))
+                                                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                                  {{ session('success') }}
+                                                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                                </div>
+                                                @endif
                                                 <div class="container px-4 px-lg-5 mt-5 justify-content-left">
                                                     <hr>
                                                     <fieldset >
@@ -89,6 +94,7 @@
                                                     </fieldset>
                                                     <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                                                         @if(Auth::check())
+                                                            
                                                         <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
                                                         <div class="text-center">
                                                             <input type="submit" class="btn btn-outline-light mt-auto" value="Pesan Sekarang">
