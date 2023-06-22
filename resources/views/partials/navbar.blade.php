@@ -1,5 +1,5 @@
 <!-- Navigation-->
-<nav class="navbar navbar-expand-lg navbar-light bg-light body-with-bg">
+<nav class="navbar navbar-expand-lg navbar-light ">
     <div class="container px-2 px-lg-2">
         <a class="navbar-brand" href="/">TopUpin</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
@@ -34,7 +34,7 @@
                     </ul>
                 </li>
                 @else
-                <li class="nav-item"><a class="nav-link text-white" href="/login">Login</a></li>
+                <li class="nav-item"><a class="nav-link text-dark" href="/login">Login</a></li>
                 
                 @endauth
             </ul>
