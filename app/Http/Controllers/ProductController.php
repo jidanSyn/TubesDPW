@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Game;
 use App\Models\Product;
 use App\Models\Pembayaran;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
