@@ -44,13 +44,14 @@ class AdminProductController extends Controller
         $selectedGame = $request->session()->get('selectedProductGameAdmin', '');
 
         // return dd($prevGame->slug);
-        $validatedData['game_id'] = $selectedGame->id;  // menentukan produk game apa berdasarkan terpilih dari details
         
         $validatedData = $request->validate([
             'name' => 'required|max:255',
             'foto' => 'image|file|max:2048',
             'harga' => 'required|between:0,99.99'
         ]);
+        
+        $validatedData['game_id'] = $selectedGame->id;  // menentukan produk game apa berdasarkan terpilih dari details
 
         $slug = SlugService::createSlug(Product::class, 'slug', $request->name);
         $validatedData['slug'] = $slug;
