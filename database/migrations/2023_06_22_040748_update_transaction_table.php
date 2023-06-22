@@ -15,7 +15,8 @@ class UpdateTransactionTable extends Migration
     {
         Schema::table('transactions', function (Blueprint $table) {
             //
-            $table->decimal('harga', 12, 2)->change();
+            // $table->decimal('harga', 12, 2)->change();
+            $table->integer('uid_game');
         });
     }
 
