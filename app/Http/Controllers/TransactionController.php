@@ -39,6 +39,8 @@ class TransactionController extends Controller
      */
     public function store(Request $request)
     {
+        dd($request);
+        return;
         // Validasi input jika diperlukan
         $request->validate([
             'product_id' => 'required|exists:products,id',

@@ -16,6 +16,8 @@ class CreateTransactionsTable extends Migration
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
             $table->foreignId('product_id');
+            $table->foreignId('user_id');
+            $table->decimal('harga', 8, 2);
             $table->timestamp('purchased_on')->nullable();
             $table->timestamps();
         });
