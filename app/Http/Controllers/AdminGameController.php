@@ -174,6 +174,7 @@ class AdminGameController extends Controller
     public function destroy(Game $game)
     {
         //
+        ddd($game);
         if($game->foto) {
             Storage::disk('public')->delete("assets/img/$game->foto");
         }

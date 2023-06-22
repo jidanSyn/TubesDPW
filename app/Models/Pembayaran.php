@@ -25,6 +25,7 @@ class Pembayaran extends Model
     public function getRouteKeyName() {
         return 'slug';
     }
+
     public function transaction() 
     {
         return $this->belongsTo(Transaction::class);

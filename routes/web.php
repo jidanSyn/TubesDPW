@@ -10,8 +10,10 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AdminGameController;
 use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\TransactionController;
+
 use App\Http\Controllers\AdminProductController;
 use App\Http\Controllers\AdminRankingController;
+use App\Http\Controllers\AdminPembayaranController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +25,7 @@ use App\Http\Controllers\AdminRankingController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::resource('/admin/payments', AdminPembayaranController::class)->parameters(['payments' => 'pembayaran']);
 
 Route::get('/', [GameController::class, 'index']);
 
@@ -60,6 +63,7 @@ Route::get('/admin/users/{user:id}', [AdminUserController::class, 'updateIsAdmin
 Route::get('/admin/rankings/games', [AdminRankingController::class, 'games']);
 Route::get('/admin/rankings/products', [AdminRankingController::class, 'products']);
 Route::get('/admin/transactions', [AdminController::class, 'viewTransactions']);
+
 
 
 
