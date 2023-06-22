@@ -9,6 +9,7 @@ use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
+
 class AdminController extends Controller
 {
     public function view()
@@ -53,7 +54,25 @@ class AdminController extends Controller
             'user_count' => count(User::all()),
             'best_game' => $query->first(),
             'best_product' => $query2->first(),
-            'transaction_count' => $transactionCount
+            'transaction_count' => $transactionCount,
+            'revenue' => Transaction::all()->sum('harga')
+        ]);
+
+        
+    }
+
+    public function viewTransactions() {
+        $query = DB::table('transactions')
+        ->select('transactions.id', 'users.name as namaUser', 'pembayarans.name as namaPembayaran', 'products.name as namaProduct', 'transactions.harga', 'transactions.purchased_on')
+        ->join('products', 'products.id', '=', 'transactions.product_id')
+        ->join('pembayarans', 'pembayarans.id', '=', 'transactions.pembayaran_id')
+        ->join('users', 'users.id', '=', 'transactions.user_id')
+        ->orderByDesc('transactions.purchased_on')
+        ->paginate(25);
+
+        return view('admin.transactions', [
+        
+        'transactions' => $query,
         ]);
     }
 }

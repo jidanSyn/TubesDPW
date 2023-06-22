@@ -11,7 +11,7 @@ use App\Http\Controllers\AdminGameController;
 use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\AdminProductController;
-
+use App\Http\Controllers\AdminRankingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,6 +56,10 @@ Route::get('/about', [AboutController::class, 'view']);
 // Route::get('/', [GameController::class, 'frequentlyPurchased']);
 
 Route::post('/admin/users', [AdminUserController::class, 'updateIsAdmin']);
+
+Route::get('/admin/rankings/games', [AdminRankingController::class, 'games']);
+Route::get('/admin/rankings/products', [AdminRankingController::class, 'products']);
+Route::get('/admin/transactions', [AdminController::class, 'viewTransactions']);
 
 
 
