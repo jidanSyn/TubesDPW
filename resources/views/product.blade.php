@@ -25,13 +25,35 @@
                                     <div class="row">
                                         <section class="py-5 text-white">
                                             <form action="/product/transaction" method="POST">
-                                                @csrf  
-                                                @if (session()->has('success'))
-                                                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                                                  {{ session('success') }}
-                                                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                                                </div>
+                                                @csrf   
+                                                @if ($errors->any())
+                                                    <div class="alert alert-danger">
+                                                        <ul>
+                                                            @foreach ($errors->all() as $error)
+                                                                <li>{{ $error }}</li>
+                                                            @endforeach
+                                                        </ul>
+                                                    </div>
+
+                                                    @else
+                                                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                                        {{ session('success') }}
+                                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                                    </div>
                                                 @endif
+
+                                                {{-- @if (session()->has('success'))
+                                                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                                    {{ session('success') }}
+                                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                                </div>
+                                                @else
+                                                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                                        {{ session('error') }}
+                                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                                    </div>
+                                                @endif --}}
+
                                                 <div class="container px-4 px-lg-5 mt-5 justify-content-left">
                                                     <hr>
                                                     <fieldset >

@@ -13,7 +13,7 @@
     </div>
   @endif
 
-  <a href="/admin/payments/create" class="btn btn-primary mb-3">Add new game</a>
+  <a href="/admin/payments/create" class="btn btn-primary mb-3">Add new payment</a>
   <div class="row table-responsive small">
     <table class="table table-striped table-sm">
       <thead>
