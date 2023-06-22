@@ -55,7 +55,7 @@ Route::get('/about', [AboutController::class, 'view']);
 
 // Route::get('/', [GameController::class, 'frequentlyPurchased']);
 
-Route::post('/admin/users', [AdminUserController::class, 'updateIsAdmin']);
+Route::get('/admin/users/{user:id}', [AdminUserController::class, 'updateIsAdmin'])->name('isAdmin');
 
 Route::get('/admin/rankings/games', [AdminRankingController::class, 'games']);
 Route::get('/admin/rankings/products', [AdminRankingController::class, 'products']);

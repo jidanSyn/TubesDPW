@@ -16,11 +16,13 @@ class AdminUserController extends Controller
         return view('admin.users.index', compact('users'));
     }
     
-    public function updateIsAdmin(Request $request, User $username)
+    public function updateIsAdmin(Request $request, User $user)
     {
-        $user = User::where('username', $username)->firstOrFail();
-        $user->is_admin = 1;
-        $user->save();
+        $adminStatus["is_admin"] = 1;
+        // $user = User::where('id', $user->id);
+        // $user->is_admin = 1;
+        // $user->save();
+        User::where('id', $user->id)->update($adminStatus);
 
         return redirect()->back()->with('success', 'User berhasil diubah menjadi admin.');
     }

@@ -29,14 +29,14 @@
     <div class="card-header">Users</div>
     <div class="card-body">
       <p class="card-text">There are {{ $user_count }} users registered </p>
-      <a href="/admin/users">See details</a>
+      <a href="/admin/users" class="text-white">See details</a>
     </div>
   </div>
   <div class="card text-bg-primary mb-3 mx-1" style="max-width: 18rem;">
     <div class="card-header">Lifetime Transactions</div>
     <div class="card-body">
       <p class="card-text">There are {{ $transaction_count }} transactions with a total revenue of Rp. {{ number_format($revenue) }} </p>
-      <a href="/admin/transactions">See details</a>
+      <a href="/admin/transactions" class="text-white">See details</a>
     </div>
   </div>
 </div>
