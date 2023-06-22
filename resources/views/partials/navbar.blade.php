@@ -18,7 +18,7 @@
             <ul class="d-flex navbar-nav ms-auto mb-2 mb-lg-0 ms-lg-4">
                 @auth
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle text-white" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Hello, {{ auth()->user()->name }} </a>
+                    <a class="nav-link dropdown-toggle text-dark" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Hello, {{ auth()->user()->name }} </a>
                     <ul class="dropdown-menu dropdown-menu-end " aria-labelledby="navbarDropdown">
                         <li>
                         

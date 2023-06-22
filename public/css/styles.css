@@ -10997,6 +10997,12 @@ textarea.form-control-lg {
 }
 
 
+div.sticky1 {
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 150px;
+}
+
 /*
 .card {
   margin: 30px auto;
