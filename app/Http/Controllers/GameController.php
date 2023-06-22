@@ -23,7 +23,7 @@ class GameController extends Controller
             $games->search($request->all());
         }
     
-        $games = $games->paginate(10)->withQueryString();
+        $games = $games->paginate(8)->withQueryString();
     
         return view('index', compact('games'));
     }
