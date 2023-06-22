@@ -4,7 +4,7 @@
 @section('container')
 {{-- listing --}}
  <!-- Section-->
-<section class="py-5">
+<section class="py-5 text-white">
     <div class="container px-4 px-lg-5 ">
 
          <h1>About Us</h1>
