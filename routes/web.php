@@ -8,6 +8,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AdminGameController;
+use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\AdminProductController;
 
@@ -44,12 +45,18 @@ Route::post('/logout', [LoginController::class, 'logout']);
 Route::resource('/product/transaction', TransactionController::class);
 
 Route::get('/admin', [AdminController::class, 'view']);
+
+Route::get('/admin/users', [AdminUserController::class, 'index']);
+
 Route::resource('/admin/games', AdminGameController::class);
 Route::resource('/admin/games/products', AdminProductController::class);
 
 Route::get('/about', [AboutController::class, 'view']);
 
-// Route::get('/', [GameController::class, 'frequentlyPurchased']);
+Route::get('/', [GameController::class, 'frequentlyPurchased']);
+
+Route::post('/admin/users', [AdminUserController::class, 'updateIsAdmin']);
+
 
 
 

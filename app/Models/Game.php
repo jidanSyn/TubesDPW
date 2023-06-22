@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Dotenv\Repository\Adapter\GuardedWriter;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-
+use Laravel\Scout\Searchable;   
 
 class Game extends Model
 {
@@ -41,4 +41,4 @@ class Game extends Model
     {
         return $this->hasMany(Product::class);
     }
-}
+}   

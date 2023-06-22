@@ -30,8 +30,8 @@ class GameController extends Controller
     
     public function frequentlyPurchased()
     {
-        $games = Game::withCount('products')
-            ->orderBy('products_count', 'desc')
+        $games = Game::withCount('product')
+            ->orderBy('product_count', 'desc')
             ->take(4) // Ambil 4     game yang paling sering dibeli
             ->get();
         return view('index', compact('games'));

@@ -52,7 +52,7 @@
                                                                             <input type="radio" name="product_id" id="topup" class="card-input-element" value="{{ $product->id }}" required/>
                                                                             <div class="panel panel-default card-input">
                                                                                 <!-- Product image-->
-                                                                                <img class="card-img-top" src="/assets/img/{{ $product->foto }}" alt="..." />
+                                                                                <img class="card-img-top" src="{{ asset('assets/img/'.$product->foto) }}" alt="..." />
                                                                                 <!-- Product details-->
                                                                                 <div class="card-body">
                                                                                     <div class="text-center">
