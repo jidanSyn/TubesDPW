@@ -46,7 +46,7 @@ class AdminGameController extends Controller
             'name' => 'required|max:255',
             'foto' => 'image|file|max:2048',
             'banner' => 'image|file|max:2048',
-
+            'deskripsi' => 'required|max:1000',
         ]);
         $slug = SlugService::createSlug(Game::class, 'slug', $request->name);
 
@@ -124,6 +124,7 @@ class AdminGameController extends Controller
             'name' => 'required|max:255',
             'foto' => 'image|file|max:2048',
             'banner' => 'image|file|max:2048',
+            'deskripsi' => 'required|max:3000',
         ]);
 
         // belum validasi

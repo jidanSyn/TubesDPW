@@ -4,6 +4,7 @@
 <h2>Games</h2>
 @endsection
 
+
 @section('content')
 
   @if (session()->has('success'))
