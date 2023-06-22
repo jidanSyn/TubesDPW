@@ -26,6 +26,12 @@
           </a>
         </li>
         <li class="nav-item">
+          <a class="nav-link d-flex align-items-center gap-2" href="/admin/payments">
+            <svg class="bi"><use xlink:href="#people"/></svg>
+            Payment Methods
+          </a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link d-flex align-items-center gap-2" href="/admin/users">
             <svg class="bi"><use xlink:href="#people"/></svg>
             Users

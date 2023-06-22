@@ -146,14 +146,15 @@ class AdminProductController extends Controller
      */
     public function destroy(Product $product)
     {
+        dd($product);
         //
-        $selectedGame = request()->session()->get('selectedProductGameAdmin', '');
-        dd($selectedGame);
-        // if($product->foto) {
-        //     Storage::disk('public')->delete("assets/img/$product->foto");
-        // }
+        // $selectedGame = request()->session()->get('selectedProductGameAdmin', '');
+        // dd($selectedGame);
+        if($product->foto) {
+            Storage::disk('public')->delete("assets/img/$product->foto");
+        }
 
-        // Product::destroy($product->id);
+        Product::destroy($product->id);
 
         return redirect('/admin/games/')->with('success', 'Product listing has been deleted');
     }
