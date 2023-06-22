@@ -11,15 +11,14 @@
                         <div class="row">
                             <div class="col-lg-4 mt-5">
                                 <!-- Konten bagian kiri (1/4) -->
-                                <div class="position-sticky">
-                                    <div class="card mt-5 border border-0">
-                                        <img src="/assets/img/{{ $game->banner }}" alt="">
-                                        <h1>{{ $game->name }}</h1>
-                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo ratione officiis
-                                            commodi delectus vitae libero. Accusantium alias, sint debitis ut beatae ratione
-                                            omnis libero quia, ullam sit dicta sequi illum!</p>
-                                    </div>
-                                
+
+                                <div class="card mt-5 border border-0 sticky1">
+                                    <img src="/assets/img/{{ $game->banner }}" alt="">
+                                    <h1>{{ $game->name }}</h1>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo ratione officiis
+                                        commodi delectus vitae libero. Accusantium alias, sint debitis ut beatae ratione
+                                        omnis libero quia, ullam sit dicta sequi illum!</p>
+
                                 </div>
                             </div>
                             <div class="col-lg-8">
@@ -29,7 +28,7 @@
                                         <section class="py-5 text-white">
                                             <form action="/product/transaction" method="POST">
                                                 @csrf  
-                                                
+
                                                 <div class="container px-4 px-lg-5 mt-5 justify-content-left">
                                                     <hr>
                                                     <fieldset >
@@ -95,6 +94,8 @@
                                                         <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
                                                         <div class="text-center">
                                                             <input type="submit" class="btn btn-outline-light mt-auto" value="Pesan Sekarang">
+                                                            <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
+
                                                         </div>
                                                         @else
                                                         <div class="text-center">

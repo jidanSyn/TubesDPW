@@ -34,7 +34,6 @@ class GameController extends Controller
             ->orderBy('products_count', 'desc')
             ->take(4) // Ambil 4     game yang paling sering dibeli
             ->get();
-
         return view('index', compact('games'));
     }
     /**
