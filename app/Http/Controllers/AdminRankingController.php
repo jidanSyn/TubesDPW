@@ -9,6 +9,7 @@ class AdminRankingController extends Controller
 {
     //
     public function games() {
+        $this->authorize('admin');
         $query = DB::table('games')
         ->select('games.*', 'products.id', 'transactions.id', DB::raw('COUNT(*) as jumlah_transaksi_per_game'))
         ->join('products', 'games.id', '=', 'products.game_id')
@@ -21,6 +22,7 @@ class AdminRankingController extends Controller
 
     }
     public function products() {
+        $this->authorize('admin');
         $query = DB::table('games')
         ->select('games.id', 'products.*', 'transactions.id', DB::raw('COUNT(*) as jumlah_transaksi_per_product'))
         ->join('products', 'games.id', '=', 'products.game_id')

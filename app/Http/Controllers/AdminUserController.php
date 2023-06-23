@@ -11,6 +11,7 @@ class AdminUserController extends Controller
 
     public function index()
     {
+        $this->authorize('admin');
         $users = User::all(); // Mengambil data game dari model Game atau menggunakan query lainnya
 
         return view('admin.users.index', compact('users'));
@@ -18,6 +19,7 @@ class AdminUserController extends Controller
     
     public function updateIsAdmin(Request $request, User $user)
     {
+        $this->authorize('admin');
         $adminStatus["is_admin"] = 1;
         // $user = User::where('id', $user->id);
         // $user->is_admin = 1;
