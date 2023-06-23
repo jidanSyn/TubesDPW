@@ -24,7 +24,7 @@
               <input class="form-control" type="file" id="banner" name="banner" required onchange="previewBanner()">
             </div>
             <div class="mb-3">
-                <label for="deskripsi" class="form-label">Des cription</label>
+                <label for="deskripsi" class="form-label">Description</label>
                 <textarea name="deskripsi" id="deskripsi" cols="30" rows="4" required value="{{ old('deskripsi') }}" class="form-control"></textarea>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
