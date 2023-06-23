@@ -62,6 +62,7 @@ class AdminController extends Controller
     }
 
     public function viewTransactions() {
+        $this->authorize('admin');
         $query = DB::table('transactions')
         ->select('transactions.id', 'transactions.uid_game', 'users.name as namaUser', 'pembayarans.name as namaPembayaran', 'products.name as namaProduct', 'transactions.harga', 'transactions.purchased_on')
         ->join('products', 'products.id', '=', 'transactions.product_id')

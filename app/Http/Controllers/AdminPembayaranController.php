@@ -19,6 +19,7 @@ class AdminPembayaranController extends Controller
     public function index()
     {
         //
+        $this->authorize('admin');
         return view('admin.payments.index', ['payments' => Pembayaran::all()]);
     }
 
@@ -30,6 +31,7 @@ class AdminPembayaranController extends Controller
     public function create()
     {
         //
+        $this->authorize('admin');
         return view('admin.payments.create');
     }
 
@@ -42,6 +44,7 @@ class AdminPembayaranController extends Controller
     public function store(Request $request)
     {
         //
+        $this->authorize('admin');
         $validatedData = $request->validate([
             'name' => 'required|max:255',
             'foto' => 'image|file|max:2048'
@@ -70,6 +73,7 @@ class AdminPembayaranController extends Controller
     public function show(Pembayaran $pembayaran)
     {
         //
+        $this->authorize('admin');
     }
 
     /**
@@ -81,6 +85,7 @@ class AdminPembayaranController extends Controller
     public function edit(Pembayaran $pembayaran)
     {
         //
+        $this->authorize('admin');
         // dd($pembayaran);
         
         return view('admin.payments.edit', ['pembayaran' => $pembayaran ] );
@@ -96,6 +101,7 @@ class AdminPembayaranController extends Controller
     public function update(Request $request, Pembayaran $pembayaran)
     {
         //
+        $this->authorize('admin');
         $validatedData = $request->validate([
             'name' => 'required|max:255',
             'foto' => 'image|file|max:2048'
@@ -135,6 +141,7 @@ class AdminPembayaranController extends Controller
     {
         //
         // ddd($pembayaran);
+        $this->authorize('admin');
 
         if($pembayaran->foto) {
             Storage::disk('public')->delete("assets/img/$pembayaran->foto");

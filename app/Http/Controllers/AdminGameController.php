@@ -18,6 +18,7 @@ class AdminGameController extends Controller
     public function index()
     {
         //
+        $this->authorize('admin');
         return view('admin.games.index', [
             'games' => Game::all()
         ]);
@@ -31,6 +32,7 @@ class AdminGameController extends Controller
     public function create()
     {
         //
+        $this->authorize('admin');
         return view('admin.games.create');
     }
 
@@ -42,6 +44,7 @@ class AdminGameController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authorize('admin');
         $validatedData = $request->validate([
             'name' => 'required|max:255',
             'foto' => 'image|file|max:2048',
@@ -79,6 +82,7 @@ class AdminGameController extends Controller
      */
     public function show(Game $game)
     {
+        $this->authorize('admin');
         // ddd($game);
         // return "hello";
         // dd($game);
@@ -99,6 +103,7 @@ class AdminGameController extends Controller
      */
     public function edit(Game $game)
     {
+        $this->authorize('admin');
         //
         // ddd($game);
         return view('admin.games.edit', ['game' => $game]);
@@ -120,6 +125,7 @@ class AdminGameController extends Controller
         //     'banner' => 'image|file|max:2048',
 
         // ]);
+        $this->authorize('admin');
         $validatedData = $request->validate([
             'name' => 'required|max:255',
             'foto' => 'image|file|max:2048',
@@ -174,7 +180,8 @@ class AdminGameController extends Controller
     public function destroy(Game $game)
     {
         //
-        ddd($game);
+        $this->authorize('admin');
+        // ddd($game);
         if($game->foto) {
             Storage::disk('public')->delete("assets/img/$game->foto");
         }

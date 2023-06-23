@@ -19,6 +19,7 @@ class AdminProductController extends Controller
     public function index()
     {
         //
+        $this->authorize('admin');
     }
 
     /**
@@ -29,6 +30,7 @@ class AdminProductController extends Controller
     public function create()
     {
         //
+        $this->authorize('admin');
         return view('admin.games.products.create');
     }
 
@@ -41,6 +43,7 @@ class AdminProductController extends Controller
     public function store(Request $request)
     {
         //
+        $this->authorize('admin');
         $selectedGame = $request->session()->get('selectedProductGameAdmin', '');
 
         // return dd($prevGame->slug);
@@ -88,6 +91,7 @@ class AdminProductController extends Controller
     {
         //
         // return "hello";
+        $this->authorize('admin');
         
         return view('admin.games.products.edit', ['product' => $product]);
     }
@@ -102,6 +106,7 @@ class AdminProductController extends Controller
     public function update(Request $request, Product $product)
     {
         //
+        $this->authorize('admin');
 
         $selectedGame = $request->session()->get('selectedProductGameAdmin', '');
 
@@ -146,7 +151,8 @@ class AdminProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        dd($product);
+        $this->authorize('admin');
+        // dd($product);
         //
         // $selectedGame = request()->session()->get('selectedProductGameAdmin', '');
         // dd($selectedGame);
