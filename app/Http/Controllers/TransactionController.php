@@ -46,7 +46,7 @@ class TransactionController extends Controller
         $validatedData = $request->validate([
             'product_id' => 'required|exists:products,id',
             'pembayaran_id' => 'required|exists:pembayarans,id',
-            'uid_game' => 'required|max:9'
+            'uid_game' => 'required|digits:9'
             // tambahkan validasi lainnya sesuai kebutuhan
         ]);
 
